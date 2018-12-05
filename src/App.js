@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Timestamp from './Timestamp';
+
 import './App.css';
 
 class App extends Component {
@@ -7,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <Timestamp />
-      </div>
+       </div>
     );
   }
 }
