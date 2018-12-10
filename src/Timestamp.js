@@ -2,17 +2,28 @@ import React, {Component} from 'react';
 import Button from './Button';
 import List from './List';
 
-// const date = new Date();
-// let timestamp = date.toISOString();
+
+const date = new Date();
+let timestamp = date.toISOString();
+
+// const someDates = ['2018-12-06',
+//                 '2018-12-10',
+//                 '2018-12-11'
+
+
+// ]
+
+
 
 class Timestamp extends Component {
     constructor(props){
         super(props);
         this.state = {
-            // time = '',
-            items: []
-        };
+            dates: [
+                
+            ]
     }
+}
 
 
     render(){
@@ -20,13 +31,16 @@ class Timestamp extends Component {
             <div>
                 <h1>Timestamp</h1>
             <Button
-            onSubmit={this._onSubmit} 
-            time={this.state.time}
-            onChange= {(event) => this._onChange(event.taget.value)}
+            
+            handleClick={this._addDate}
+            
+            // onSubmit={this._onSubmit} 
+            // value={this.state.value}
+            // onChange= {(event) => this._onChange(event.target.value)}
             />
             <div>
                 <List 
-                items = {this.state.items}
+                someDates = {this.state.dates}
                 />
 
             </div>
@@ -35,19 +49,22 @@ class Timestamp extends Component {
         )
     }
 
-    // _onChange = () => {
+    // _onChange = timeInput => {
     //     this.setState({
-    //         time: timestamp
+    //         value: timeInput
     //     })
     // }
 
-    _onSubmit = (time) => {
-        time.preventDefault();
+    _addDate = () => {
+        const aNewDate = new Date ();
+        
         console.log('submitted')
-        // console.log(timestamp)
+        
         this.setState({
-            items: [...this.state.items, time]
-        })
+            dates: [...this.state.dates, 
+                aNewDate.toLocaleString()
+            ]
+        });
         
     }
 }
